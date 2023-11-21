@@ -20,10 +20,12 @@ class DetailPage extends StatelessWidget {
             Image(image: AssetImage(pemain.gambar)),
             const SizedBox(height: 10),
             const SizedBox(height: 10),
-            textAttribute("Species", pemain.species),
-            textAttribute("No. Kartu", pemain.noKartu),
+            textAttribute("Spec.", pemain.species),
+            textAttribute("No.", pemain.noKartu),
+            textAttribute("ATK", pemain.ATK),
+            textAttribute("DEF", pemain.DEF),
             const SizedBox(height: 10),
-            textAttribute("Detail", Colors.grey),
+            textTitle("Detail", Colors.grey),
             const SizedBox(height: 10),
             Text(
               pemain.detail,
@@ -34,6 +36,39 @@ class DetailPage extends StatelessWidget {
         ),
       ),
     );
-    Container
+  }
+
+  Container textTitle(String value, Color bgColor) {
+    return Container(
+      padding: const EdgeInsets.all(10),
+      alignment: Alignment.center,
+      width: double.infinity,
+      decoration: BoxDecoration(color: bgColor),
+      child: Text(
+        value,
+        style: const TextStyle(
+            fontWeight: FontWeight.bold, fontSize: 20, color: Colors.white),
+      ),
+    );
+  }
+
+  Row textAttribute(String label, String value) {
+    return Row(
+      children: [
+        SizedBox(
+          width: 80,
+          child: Text(
+            "- $label",
+            style: const TextStyle(
+                fontWeight: FontWeight.bold, fontSize: 20, color: Colors.black),
+          ),
+        ),
+        const Text(
+          ":",
+          style: TextStyle(fontSize: 18),
+        ),
+        Text(value, style: const TextStyle(fontSize: 18)),
+      ],
+    );
   }
 }

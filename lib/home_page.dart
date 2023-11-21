@@ -25,11 +25,12 @@ class HomePage extends StatelessWidget {
                 return InkWell(
                   onTap: () {
                     Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (contex) => DetailPage(),
-                      ),
-                    );
+                        context,
+                        MaterialPageRoute(
+                          builder: (contex) => DetailPage(
+                            pemain: listCard[index],
+                          ),
+                        ));
                   },
                   child: Container(
                     margin: const EdgeInsets.all(10),
